@@ -1049,6 +1049,9 @@ Automatic collapse remains presentation only, prioritizes the latest explicit
 panel, and honors keyboard focus on the right. Mobile layout still releases
 desktop allocation styles. Stable Display allocation avoids unnecessary style
 writes. This extraction does not change panel positions or layout defaults.
+The right rail skips panels hidden by other CSS (computed `display: none`), but
+keeps the collapsed panels its own exclusive presentation hides, so automatic
+collapse can still be undone.
 
 ## Surface keyboard lifecycle
 
@@ -4321,6 +4324,8 @@ and unreachable upstream (502/504) separately from road geometry.
 - Output is sanitized to exactly five words; falls back to the deterministic telemetry summary on error/timeout (5s abort); typewriter animation on update.
 
 ### Place-search providers
+
+Coordinate input requires exactly two nonempty components; extra comma or semicolon separators decline to geocoding rather than silently choosing a location.
 
 Location search/fly-to, annotations and Radio location lookup receive one
 `placeSearch.geocode(query, { bias, signal })` service. `src/standalone` composes
