@@ -1,5 +1,8 @@
 # Changelog
 
+- Snow flakes sway within a fixed range instead of drifting sideways faster the
+  longer the app runs; the Wind setting still scales the sway.
+
 - Bing Aerial and Bing Labels request HTTPS tiles on HTTP localhost through
   their ion-backed providers, retaining ion and per-tile attribution without
   widening the Content Security Policy.
